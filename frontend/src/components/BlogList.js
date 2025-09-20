@@ -6,6 +6,7 @@ const BlogList = () => {
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/posts")
+      .then((res ) => res.json())
       .then(res => setPosts(res.data))
       .catch(err => console.log(err));
   }, []);

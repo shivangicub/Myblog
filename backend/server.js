@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/posts", postRoutes);
+app.use("/api/auth", require("./routes/authRoutes"));
 
 console.log("Before connecting to MongoDB:", process.env.MONGO_URI);
 

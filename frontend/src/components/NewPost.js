@@ -7,6 +7,13 @@ const NewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token"); // get token
+    if (!token) {
+      alert("You must be logged in as admin");
+      return;
+    }
+
+
     try {
       await axios.post("http://localhost:5000/api/posts", { title, content });
       alert("Post created!");
